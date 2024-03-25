@@ -1,0 +1,24 @@
+﻿############ GOVERNMENT BUILDINGS
+
+building_pollution_treatment_plant = { #污染处理厂
+	texture = "gfx/interface/icons/building_icons/building_trade_center.dds"
+	building_group = bg_bureaucracy
+	city_type = city
+
+	levels_per_mesh = 1
+
+	enable_air_connection = yes
+
+	override_centerpiece_mesh = yes
+
+	expandable = no
+
+	downsizeable = no
+
+	production_method_groups = {
+		pmg_pollution_control #污染治理
+	}
+
+	required_construction = construction_cost_medium
+	ai_value = 10000 # Construction sector should generally be preferred over other equal-priority spending items
+}

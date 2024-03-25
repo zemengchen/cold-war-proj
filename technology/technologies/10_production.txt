@@ -1,0 +1,796 @@
+﻿### ERA 1
+sericulture = {
+	# Unlocks Mulberry Groves PM on Rice Farms
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
+	category = production
+	can_research = no
+	
+	modifier = {
+		building_silk_plantation_throughput_add = 0.25
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+cotton_gin = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/cotton_gin.dds"
+	category = production
+
+	modifier = {
+		building_cotton_plantation_throughput_add = 0.25
+	}
+	
+	unlocking_technologies = {
+		enclosure
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+enclosure = {
+	# Unlocks construction of all Farms and Plantations
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+	
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+prewar_manufacturies = {
+	# Unlocks Mercantilism Law
+	# Unlocks Food Industry, Textile Mills, Furniture Manufacturies, Glassworks, Tooling Workshops, Paper Mills
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+	
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+prewar_mining = {
+	# Unlocks Coal Mine, Iron Mine, Lead Mine, Sulfur Mine
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/shaft_mining.dds"
+	category = production
+	
+	unlocking_technologies = {
+		enclosure
+		prewar_manufacturies
+	}
+	
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+prewar_pm = {
+	# Unlocks tier 2 or 3 pm for all unlocked by prewar manufacturies
+	
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/shaft_mining.dds"
+	category = production
+	
+	unlocking_technologies = {
+		enclosure
+		prewar_manufacturies
+	}
+	
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+mining_prospection = {
+	# Unlocks possibility to discover oil, rubber and gold
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/prospecting_tech.dds"
+	category = production
+	
+	unlocking_technologies = {
+		prewar_mining
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+prewar_railways = {
+	# Unlocks Railways
+	# Unlocks Rail Transport PM in Coal, Iron, Lead, Sulfur Mines
+	# Unlocks Rail Transport PM in Coffee, Cotton, Dye, Opium, Tea, Tobacco, Sugar, Rubber, Banana Plantations
+	# Unlocks Rail Transport PM in Logging Camp
+	# Unlocks Rail Transport PM in Oil Rig
+	# Unlocks Public Trams in Urban Centers
+	# Increases Railway max level by 1
+	#5% local market influence
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/railways.dds"
+	category = production
+	
+	unlocking_technologies = {
+		prewar_pm
+	}
+	
+	ai_weight = {
+		value = 2 # Important tech for everyone
+		
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}		
+	}
+}
+
+prewar_apm = {
+	# Unlocks tier 2 or 3 apm for all unlocked by enclosure
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/shaft_mining.dds"
+	category = production
+	
+	unlocking_technologies = {
+		enclosure
+	}
+	
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+### ERA 2
+
+strategic_resource_prospection = {
+	# Unlocks possibility to discover uranium, copper, aluminium, rare earth, chromium，nickel
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/prospecting_tech.dds"
+	category = production
+	
+	unlocking_technologies = {
+		prewar_mining
+		satellite
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+basic_electric_generation = {
+	# Unlocks possibility to build power plants
+	# Unlocks hydropower, coalpower and oilpower pm in power plants
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/prospecting_tech.dds"
+	category = production
+	
+	unlocking_technologies = {
+		prewar_pm
+		strategic_resource_prospection
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+uranium_extraction = {
+	# Unlocks nuclear power pm in power plants
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/prospecting_tech.dds"
+	category = production
+	
+	unlocking_technologies = {
+		strategic_resource_prospection
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+electric_railway = {
+	# Unlocks Electric Trains PM in Railways
+	# Unlocks Log Carts PM in Logging Camps
+	# Unlocks Refrigerated Rail Carts in Fishing Wharfs
+	# Increases Railway max level by 1
+	#5% local market influence
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/electric_railway.dds"
+	category = production		
+	
+	unlocking_technologies = {
+		prewar_railway
+		basic_electric_generation
+	}	
+	
+	ai_weight = {
+		value = 1
+		
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}	
+	}
+}
+
+during_war_pm  = {
+	# Unlocks all pm in original game
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/shaft_mining.dds"
+	category = production
+	
+	unlocking_technologies = {
+		electric_railway
+		
+	}
+	
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+during_war_apm = {
+	# Unlocks all apm in original game
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/shaft_mining.dds"
+	category = production
+	
+	unlocking_technologies = {
+		prewar_apm
+	}
+	
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+### ERA 3
+
+electric_arc_process = {
+	# Unlocks the Electric Arc Process PM in Steel Mills
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/electric_arc_process.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		during_war_pm
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+carbide_tooling = {
+	# Unlocks carbide tooling pm
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/steam_donkey.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		during_war_pm
+	}
+	
+	ai_weight = {
+		value = 1
+		
+		if = {
+			limit = { 
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}	
+	}	
+}
+
+basic_automation = {
+	# Unlocks the basic automation pm in factories, requires computer input
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/conveyers.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		early_semiconductor_and_transistor
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+satellite = {
+	#unlocks rocket factory, space center
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
+	category = production
+
+	unlocking_technologies = {
+		early_semiconductor_and_transistor
+		composite_materials
+		renewable_energy 
+	}
+
+	ai_weight = {
+		value = 1 # Important tech for everyone
+	}
+}
+
+
+navigation_satellites = {
+	#unlocks pm in urban center, reduce number of labors
+	#5% local market influence
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
+	category = production
+	
+	unlocking_technologies = {
+		satellite 
+	}
+
+	ai_weight = {
+		value = 2 # Important tech for everyone
+	}
+}
+
+early_semiconductor_and_transistor = {
+	#unlocks computer factory
+	#unlocks tv factory
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		during_war_pm
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+composite_materials = {
+	#unlocks composite factory, input:,output:fiber
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		synthetic_materials
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+HPC = {
+	#new pm in urban center, more glass, steel input, more service output,
+	#less labor, more mechanics
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+	
+	modifier = {
+		building_construction_sector_throughput_add = 0.15
+	}
+
+	unlocking_technologies = {	
+		composite_materials
+		carbide_tooling
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+synthetic_materials = {
+	#unlocks symthetic rubber mills
+	#unlocks plastic mills
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		during_war_pm
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+superconductors = {
+	#unlocks new pm in radio mills
+	#electricity through out output add = .15
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	modifier = {
+		
+	}
+
+	unlocking_technologies = {	
+		during_war_pm
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+renewable_energy = {
+	#unlocks Wind turbines, solar panels, hydroelectric power advancements
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		HPC
+		carbide_tooling
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+massive_vehicle_production = {
+	#unlocks new pm in car plants
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		synthetic_materials
+		carbide_tooling
+		early_semiconductor_and_transistor
+		electric_arc_process
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+NPK = {
+	#unlocks new pm in fertilizer plants
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		during_war_apm
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+early_pesticide = {
+	#unlocks new pm in farms
+	#unlocks pesticide plant
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		during_war_apm
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+remote_sensing = {
+	#increases chances to find new resources
+	#unlocks new pm in minings: new computer input, more minings output
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		early_semiconductor_and_transistor
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+mechanized_agriculture = {
+	#unlocks new pm in farms: more oil and tools input, decreases number of labor, increase number of farmers
+	#increases attraction of union for farmers
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		during_war_apm
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+weather_satellite ={
+	#unlocks new pm in farms: more satellite input, decreases number of labor, increase number of engineers,mechanics
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+	
+	unlocking_technologies = {	
+		remote_sensing
+		mechanized_agriculture
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 4
+microprocessor = {
+	#unlocks new pm in computer factories, more rare earth, copper and gold input, more computer output
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		early_semiconductor_and_transistor
+		composite_materials
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+satellite_tv_production = {
+	#unlocks new pm in computer factories, more rare earth, copper and gold input, more computer output
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		microprocessor
+		communication_satellite
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+computer_integrated_manufacturing = {
+	#unlocks new pm in some factories: reduce number of labors, increase number of engineers and mechanics
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		microprocessor
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+computer_based_logistics = {
+	#5% local market influence
+	#unlocks new pm in railway, new computer input, more capacity output
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		microprocessor
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+composite_tooling = {
+	#unlocks new pm in tool mills, new fiber input, more tool output
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		composite_materials
+		carbide_tooling
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+telecommunication = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		microprocessor
+		superconductors
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+communication_satellites = {
+	
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
+	category = production
+	
+	unlocking_technologies = {
+		satellite 
+		telecommunication
+	}
+
+	ai_weight = {
+		value = 2 # Important tech for everyone
+	}
+}
+
+catalytic_converter_manufacturing = {
+	#new pm requiring tools, fibers to reduce pollution level for each level of mills
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		composite_materials
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+improved_clean_energy = {
+	#new pm for wind power, sunpower plants, less input, more electricity output
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		composite_materials
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 5
+
+internet_infrastructure = {
+	#new pm for urban center, new tv input, more service output
+	#5% local market influence
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		communication_satellites
+		computer_based_logistics
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+nanotechnology = {
+	#new pm for tool mills, more fiber input
+	#new pm for computer and tv factory
+	#new pm for rocket factory
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		catalytic_converter_manufacturing 
+		improved_clean_energy
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+biotechnological_advances = {
+	#new building hydroponic farm, doesn't take land, input: few fertilizer, electricity, output: any products
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		improved_clean_energy
+		computer_integrated_manufacturing
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+global_supply_chain = {
+	#cancel all local market influence
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		computer_based_logistics
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+artificial_intelligence = {
+	#new pm in all factories, less labors, more mechanics and engineers
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		computer_integrated_manufacturing
+		global_supply_chain
+		internet_infrastructure
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+quantum_computing = {
+	#less computer input in all buildings needing computer, more engineers
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	unlocking_technologies = {	
+		composite_materials
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}

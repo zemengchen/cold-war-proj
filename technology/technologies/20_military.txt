@@ -1,0 +1,936 @@
+﻿### ERA 1
+
+standing_army = {
+	# Unlocks Barracks building
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	category = military
+	can_research = no
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+navigation = {
+	# Unlocks Shipyards
+	# Unlocks Ports
+	# Increases Port max level by 2
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	category = military    
+	can_research = no
+	modifier = {
+		state_building_port_max_level_add = 2
+    }
+	
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+mandatory_service = {
+	# Unlocks Army Model - National Militia
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/mandatory_service.dds"
+	category = military
+	
+	modifier = {
+		state_conscription_rate_mult = 0.5
+	}
+	
+	unlocking_technologies = {
+		standing_army
+		admiralty
+	}
+	
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+gunsmithing = {
+	# Unlocks Arms Industry building
+	# Global Unlock for Muskets PM in Barracks
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/gunsmithing.dds"
+	category = military
+	
+	unlocking_technologies = {
+		standing_army
+	}
+	
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+ba_rifles_sa_rifles = {
+	# Unlocks Munition Plants building
+	# Unlocks Skirmishers
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/percussion_cap.dds"
+	category = military
+	
+	unlocking_technologies = {	
+		gunsmithing
+	}
+	
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+artillery = {
+	# Unlocks Artillery Production PM in Arms Industries
+	# Unlocks Cannon Artillery PM in Barracks
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/artillery.dds"
+	category = military
+	
+	unlocking_technologies = {
+		gunsmithing
+	}
+	
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+military_drill = {
+	# Does nothing yet; should enable/increase combat unit Experience gain
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/military_drill.dds"
+	category = military
+	
+	modifier = {
+	}
+	
+	unlocking_technologies = {
+		mandatory_service
+	}
+	
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+admiralty = {
+	# Unlocks Naval Base building
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+	can_research = no
+
+	modifier = {
+		state_building_naval_base_max_level_add = 20
+  		  }
+
+	unlocking_technologies = {
+		navigation
+	}	
+	
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+dreadnought = {
+	# Unlocks Naval Base building
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+	
+	unlocking_technologies = {
+		admiralty
+		artillery
+	}	
+	
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+fleet_in_being = {
+	# Unlocks Naval Base building
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+
+	modifier = {
+		unit_navy_offense_mult = 0.1
+		unit_navy_defense_mult = 0.1
+	}
+	
+	unlocking_technologies = {
+		dreadnought
+	}	
+	
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+### ERA 2
+
+cruiser = {
+	# Unlocks cruiser pm in naval bases
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+	
+	unlocking_technologies = {
+		fleet_in_being
+	}	
+	
+	ai_weight = {
+		value = 2 # Very important in general
+	}
+}
+
+battleship = {
+	# Unlocks battleship pm in naval bases
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+	
+	unlocking_technologies = {
+		fleet_in_being
+	}	
+	
+	ai_weight = {
+		value = 2 # Very important in general
+	}
+}
+
+submarine = {
+	# Unlocks submarine pm in naval bases
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+	
+	unlocking_technologies = {
+		fleet_in_being
+	}	
+	
+	ai_weight = {
+		value = 2 # Very important in general
+	}
+}
+
+destroyer = {
+	# Unlocks submarine pm in naval bases
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+	
+	unlocking_technologies = {
+		submarine
+	}	
+	
+	ai_weight = {
+		value = 2 # Very important in general
+	}
+}
+
+aircraft_carrier = {
+	# Unlocks submarine pm in naval bases
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+	
+	unlocking_technologies = {
+		military_aviation
+		battleship
+	}	
+	
+	ai_weight = {
+		value = 2 # Very important in general
+	}
+}
+
+power_projection = {
+	# Unlocks Naval Base building
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+
+	modifier = {
+		unit_navy_offense_mult = 0.2
+	}
+	
+	unlocking_technologies = {
+		aircraft_carrier
+		cruiser 
+		destroyer
+	}	
+	
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+trench_works = {
+	# Increases defense
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/field_works.dds"
+	category = military
+	
+	modifier = {
+		unit_army_defense_mult = 0.2
+	}
+	
+	unlocking_technologies = {
+		military_drill
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+modern_nursing = {
+	# Unlocks Field Hospitals PM in Barracks
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/modern_nursing.dds"
+	category = military
+	
+	unlocking_technologies = {
+		mandatory_service
+		military_drill
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+siege_cannon = {
+	# Unlocks siege cannon PM in Arms Industries
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/shell_gun.dds"
+	category = military
+	
+	unlocking_technologies = {	
+		artillery
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+general_staff = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/general_staff.dds"
+	category = military
+	
+	unlocking_technologies = {	
+		military_drill
+	}
+	
+	modifier = {
+		unit_army_offense_mult = 0.2
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+automatic_machine_guns = {
+	# Unlocks Recoil Mechaniscm PM in Arms Factory
+	# Unlocks Machine Gunners PMs in Barracks and Conscription Centers
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/machine_gun.dds"
+	category = military
+	
+	unlocking_technologies = {	
+		trench_works
+		ba_rifles_sa_rifles
+	}
+	
+	ai_weight = {
+		value = 1.5 # important for everyone
+	}
+}
+
+automatic_rifles_submachine_gun = {
+	# Unlocks Recoil Mechaniscm PM in Arms Factory
+	# Unlocks Machine Gunners PMs in Barracks and Conscription Centers
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/machine_gun.dds"
+	category = military
+	
+	unlocking_technologies = {	
+		automatic_machine_guns
+		ba_rifles_sa_rifles
+	}
+	
+	ai_weight = {
+		value = 1.5 # important for everyone
+	}
+}
+
+interwar_tank = {
+	# Unlocks Tanks PM in Vehicles Industries
+	# Unlocks Tanks, Planes and Tanks PM in Barracks
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/mobile_armor.dds"
+	category = military
+	
+	unlocking_technologies = {	
+		trench_works
+		siege_cannon
+	}
+	
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+interwar_drill = {
+	# Unlocks interwar drill PM in Barracks
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/mobile_armor.dds"
+	category = military
+	
+	unlocking_technologies = {	
+		interwar_tank
+		general_staff
+	}
+	
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+night_vision_goggles = {
+	# Unlocks interwar drill PM in Barracks
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/mobile_armor.dds"
+	category = military
+	
+	unlocking_technologies = {
+		general_staff
+	}
+	
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+military_aviation = {
+	# Unlocks Vehicles Industries
+	# Unlocks Tanks, Planes and Tanks PM in Barracks
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/military_aviation.dds"
+	category = military
+	
+	modifier = {
+		# increased oil consumption
+		# increased recon/scouting/go fast
+	}
+	
+	unlocking_technologies = {	
+		trench_works
+		interwar_tank
+	}
+	
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+war_propaganda = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/war_propaganda.dds"
+	category = military
+
+	modifier = {
+		unit_morale_loss_mult = -0.05
+		state_conscription_rate_mult = 0.2
+	}
+	
+	unlocking_technologies = {	
+		interwar_drill
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 3
+
+cruiser_submarine = {
+	#Unlocks new option in submarine
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+	unlocking_technologies = {	
+		submarine
+		military_aviation
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+helicopter = {
+	#Unlocks new option in zhencha
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+	unlocking_technologies = {	
+		interwar_drill
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+main_battle_tank = {
+	#Unlocks new tank pm in each unit
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+	unlocking_technologies = {	
+		interwar_drill
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+military_statistics = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/military_statistics.dds"
+	category = military
+	
+	
+	modifier = {
+		military_formation_organization_gain_mult = 0.2
+		state_conscription_rate_mult = 0.3
+	}
+	
+	unlocking_technologies = {	
+		electric_telegraph
+		general_staff
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+mechanized_infantry = {
+	#Unlocks new tank pm in each unit
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+	unlocking_technologies = {	
+		interwar_drill
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+attack_aircraft = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+
+	modifier = {
+		#士气打击 up, attack up
+	}
+	unlocking_technologies = {	
+		interwar_drill
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+fighter_aircraft = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+
+	modifier = {
+		#defense up
+	}
+
+	unlocking_technologies = {	
+		interwar_drill
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+coordinated_carrier-based_aircraft_operations = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+	modifier = {
+		unit_navy_offense_mult = 0.1
+	}
+
+	unlocking_technologies = {	
+		fighter_aircraft
+		attack_aircraft
+		helicopter
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+
+jet_engine = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {	
+		attack_aircraft
+		fighter_aircraft
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+grand_depth_theory = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+
+	modifier = {
+		#defense up
+		#士气恢复 up
+	}
+
+	unlocking_technologies = {	
+		main_battle_tank
+		mechanized_infantry
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+self_propelled_artillery = {
+	#new pm in each unit
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+
+	modifier = {
+		#士气打击 up
+		#攻击up
+	}
+
+	unlocking_technologies = {	
+		main_battle_tank
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+nuclear_weapons = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {	
+		attack_aircraft
+		war_propaganda
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+militarized_radar = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+	modifier = {
+		#士气恢复up
+	}
+
+	unlocking_technologies = {	
+		attack_aircraft
+		war_propaganda
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+shipborne_air_defense_monitoring = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+	modifier = {
+		unit_navy_defense_mult = 0.2
+	}
+
+	unlocking_technologies = {	
+		militarized_radar 
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+ideology_propaganda = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+	modifier = {
+		#士气恢复up,增兵率up
+	}
+
+	unlocking_technologies = {	
+		war_propaganda
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+### ERA 4
+
+nuclear_submarine= {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+	modifier = {
+		#士气恢复up
+	}
+
+	unlocking_technologies = {	
+		nuclear_weapon
+		cruiser_submarine
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+espionage = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+	modifier = {
+		#士气恢复up
+	}
+
+	unlocking_technologies = {	
+		nuclear_weapon
+		militarized_radar
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+ballistic_missile = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {	
+		nuclear_weapon
+		jet_engine
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+missile_cruiser = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {	
+		cruiser
+		ballistic_missile
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+amphibious_assault_ship = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {	
+		helicopter
+		destroyer
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+missile_destroyer = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {	
+		ballistic_missile
+		destroyer
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+satellite_reconnaissance = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {
+		jet_engine
+		ballistic_missile
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+electronic_warfare = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {
+		militrarized_radar
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+anti_ballistics_system = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {
+		militrarized_radar
+		satellite_reconnaissance
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+ 
+### ERA 5
+stealth_tech = {
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {
+		militrarized_radar
+		jet_engine
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+precision_guided_missile = {
+	# unlock option kill rate up
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+	
+	unlocking_technologies = {
+		militrarized_radar
+		ballistic_missile
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+}
+
+integrated_defense_networks = {
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {
+		precision_guided_missile
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+
+}
+
+information_warfare = {
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	unlocking_technologies = {
+		ideology_propaganda
+	}
+	
+	ai_weight = {
+		value = 2
+	}
+
+}

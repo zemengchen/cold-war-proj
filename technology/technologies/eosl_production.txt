@@ -1,0 +1,64 @@
+### ERA 1
+factory_work = { #转塔车床
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/lathe.dds"
+	category = production
+	
+	modifier = {
+		building_economy_of_scale_level_cap_add = 20
+	}
+	
+	unlocking_technologies = {	
+		lathe
+	}
+}
+
+### ERA 2
+lathe_work = { #回轮车床
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/mechanized_workshops.dds"
+	category = production
+	
+	modifier = {
+		building_economy_of_scale_level_cap_add = 20
+	}
+	
+	unlocking_technologies = {	
+		factory_work
+	}
+}
+
+### ERA 3
+efficient_work = { #自动车床
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/shift_work.dds"
+	category = production
+	
+	modifier = {
+		building_economy_of_scale_level_cap_add = 20
+	}
+	
+	unlocking_technologies = {	
+		shift_work
+		lathe_work
+	}
+}
+
+### ERA 4
+electrical_work = { #高效自动车床
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/rollers.dds"
+	category = production
+	
+	modifier = {
+		building_economy_of_scale_level_cap_add = 20
+	}
+	
+	unlocking_technologies = {	
+		efficient_work
+		electrical_generation
+	}
+}
+
+
+
